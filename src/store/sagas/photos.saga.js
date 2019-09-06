@@ -1,10 +1,10 @@
-import { call, put, takeLatest, select } from 'redux-saga/effects';
-import { PhotosApi } from '../../services/photos.service';
-import { GalleryActions } from '../actions/photos.actions';
+import { call, put, takeLatest, select } from "redux-saga/effects";
+import { PhotosApi } from "../../services/photos.service";
+import { GalleryActions } from "../actions/photos.actions";
 
 const getPagination = state => ({
   page: state.gallery.page,
-  limit: state.gallery.limit,
+  limit: state.gallery.limit
 });
 const getSelectedPhoto = state => state.gallery.selected_photo;
 
@@ -19,16 +19,16 @@ function* fetchPhotos() {
     );
     yield put({
       type: GalleryActions.FETCH_PHOTOS_SUCCESS,
-      payload: result.data,
+      payload: result.data
     });
     yield put({
       type: GalleryActions.SET_SELECTED_PHOTO,
-      payload: selected_photo || (result.data.length ? result.data[0] : null),
+      payload: selected_photo || (result.data.length ? result.data[0] : null)
     });
   } catch (error) {
     console.log(error);
     yield put({
-      type: GalleryActions.FETCH_PHOTOS_FAILURE,
+      type: GalleryActions.FETCH_PHOTOS_FAILURE
     });
   }
 }

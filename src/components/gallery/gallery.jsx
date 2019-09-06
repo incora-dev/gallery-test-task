@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import './gallery.scss';
-import { getPhotos } from '../../store/actions/photos.actions';
-import { bindActionCreators } from 'redux';
-import PhotoList from '../photo-list/photo-list';
-import PhotoPreview from '../photo-preview/photo-preview';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import "./gallery.scss";
+import { getPhotos } from "../../store/actions/photos.actions";
+import { bindActionCreators } from "redux";
+import PhotoList from "../photo-list/photo-list";
+import PhotoPreview from "../photo-preview/photo-preview";
 
 function Gallery({ page, loading, getPhotos, favorite_photos_count }) {
   /**
@@ -15,7 +15,7 @@ function Gallery({ page, loading, getPhotos, favorite_photos_count }) {
   }, [getPhotos]);
 
   return loading ? (
-    'Loading...'
+    "Loading..."
   ) : (
     <div className="gallery">
       <div className="gallery__preview">
@@ -33,13 +33,13 @@ function Gallery({ page, loading, getPhotos, favorite_photos_count }) {
 const mapStateToProps = state => ({
   favorite_photos_count: state.gallery.favorite_photos.length,
   loading: state.gallery.loading,
-  page: state.gallery.page,
+  page: state.gallery.page
 });
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      getPhotos,
+      getPhotos
     },
     dispatch
   );
