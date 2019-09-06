@@ -1,4 +1,4 @@
-export const GalleryActions = {
+export const GalleryActionsTypes = {
   FETCH_PHOTOS: "FETCH_PHOTOS",
   FETCH_PHOTOS_SUCCESS: "FETCH_PHOTOS_SUCCESS",
   FETCH_PHOTOS_FAILURE: "FETCH_PHOTOS_FAILURE",
@@ -13,7 +13,7 @@ export const GalleryActions = {
  */
 export const getPhotos = () => {
   return {
-    type: GalleryActions.FETCH_PHOTOS
+    type: GalleryActionsTypes.FETCH_PHOTOS
   };
 };
 
@@ -23,7 +23,7 @@ export const getPhotos = () => {
  */
 export const setSelectedPhoto = photo => {
   return {
-    type: GalleryActions.SET_SELECTED_PHOTO,
+    type: GalleryActionsTypes.SET_SELECTED_PHOTO,
     payload: photo
   };
 };
@@ -34,7 +34,7 @@ export const setSelectedPhoto = photo => {
  */
 export const addToFavorites = photo => {
   return {
-    type: GalleryActions.ADD_FAVORITES,
+    type: GalleryActionsTypes.ADD_FAVORITES,
     payload: photo
   };
 };
@@ -45,7 +45,7 @@ export const addToFavorites = photo => {
  */
 export const removeFromFavorites = photo => {
   return {
-    type: GalleryActions.REMOVE_FAVORITES,
+    type: GalleryActionsTypes.REMOVE_FAVORITES,
     payload: photo
   };
 };
@@ -56,7 +56,7 @@ export const removeFromFavorites = photo => {
  */
 export const setPage = page => {
   return {
-    type: GalleryActions.SET_PAGE,
+    type: GalleryActionsTypes.SET_PAGE,
     payload: page
   };
 };

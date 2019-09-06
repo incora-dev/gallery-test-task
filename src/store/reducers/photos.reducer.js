@@ -1,4 +1,4 @@
-import { GalleryActions } from "../actions/photos.actions";
+import { GalleryActionsTypes } from "../actions/photos.actions";
 
 const initialState = {
   photos: [],
@@ -11,44 +11,44 @@ const initialState = {
 
 export default function gallery(state = initialState, action) {
   switch (action.type) {
-    case GalleryActions.FETCH_PHOTOS: {
+    case GalleryActionsTypes.FETCH_PHOTOS: {
       return {
         ...state,
         loading: true
       };
     }
-    case GalleryActions.FETCH_PHOTOS_SUCCESS: {
+    case GalleryActionsTypes.FETCH_PHOTOS_SUCCESS: {
       return {
         ...state,
         loading: false,
         photos: action.payload
       };
     }
-    case GalleryActions.FETCH_PHOTOS_FAILURE: {
+    case GalleryActionsTypes.FETCH_PHOTOS_FAILURE: {
       return {
         ...state,
         loading: false
       };
     }
-    case GalleryActions.SET_SELECTED_PHOTO: {
+    case GalleryActionsTypes.SET_SELECTED_PHOTO: {
       return {
         ...state,
         selected_photo: action.payload
       };
     }
-    case GalleryActions.SET_PAGE: {
+    case GalleryActionsTypes.SET_PAGE: {
       return {
         ...state,
         page: action.payload
       };
     }
-    case GalleryActions.ADD_FAVORITES: {
+    case GalleryActionsTypes.ADD_FAVORITES: {
       return {
         ...state,
         favorite_photos: [...state.favorite_photos, action.payload]
       };
     }
-    case GalleryActions.REMOVE_FAVORITES: {
+    case GalleryActionsTypes.REMOVE_FAVORITES: {
       return {
         ...state,
         favorite_photos: state.favorite_photos.filter(
