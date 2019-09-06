@@ -16,7 +16,7 @@
   "scripts": {
     "start": "react-scripts start",
     "start:docker": "docker-compose up -d --build",
-    "srop:docker": "docker-compose stop",
+    "stop:docker": "docker-compose stop",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "test": "jest",
