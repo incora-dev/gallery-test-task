@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import './gallery.scss';
 import { getPhotos } from '../../store/actions/photos.actions';
 import { bindActionCreators } from 'redux';
+import PhotoList from '../photo-list/photo-list';
 
-function Gallery({ loading, getPhotos }) {
+function Gallery({ page, loading, getPhotos }) {
   /**
    *  Fetch photos on component mount
    */
@@ -12,10 +13,21 @@ function Gallery({ loading, getPhotos }) {
     getPhotos();
   }, [getPhotos]);
 
-  return loading ? 'Loading...' : <div className="gallery">gallery</div>;
+  return loading ? (
+    'Loading...'
+  ) : (
+    <div className="gallery">
+      <div className="gallery__preview">preview</div>
+      <div className="gallery__list">
+        <div>Page: {page}</div>
+        <PhotoList />
+      </div>
+    </div>
+  );
 }
 const mapStateToProps = state => ({
   loading: state.gallery.loading,
+  page: state.gallery.page,
 });
 
 const mapDispatchToProps = dispatch =>
