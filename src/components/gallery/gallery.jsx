@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import PhotoList from '../photo-list/photo-list';
 import PhotoPreview from '../photo-preview/photo-preview';
 
-function Gallery({ page, loading, getPhotos }) {
+function Gallery({ page, loading, getPhotos, favorite_photos_count }) {
   /**
    *  Fetch photos on component mount
    */
@@ -22,13 +22,16 @@ function Gallery({ page, loading, getPhotos }) {
         <PhotoPreview />
       </div>
       <div className="gallery__list">
-        <div>Page: {page}</div>
+        <div>
+          Page: {page} | Favorites: {favorite_photos_count}
+        </div>
         <PhotoList />
       </div>
     </div>
   );
 }
 const mapStateToProps = state => ({
+  favorite_photos_count: state.gallery.favorite_photos.length,
   loading: state.gallery.loading,
   page: state.gallery.page,
 });

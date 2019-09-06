@@ -2,9 +2,9 @@ import { GalleryActions } from '../actions/photos.actions';
 
 const initialState = {
   photos: [],
+  favorite_photos: [],
   loading: true,
   selected_photo: null,
-
   page: 1,
   limit: 20,
 };
@@ -40,6 +40,20 @@ export default function gallery(state = initialState, action) {
       return {
         ...state,
         page: action.payload,
+      };
+    }
+    case GalleryActions.ADD_FAVORITES: {
+      return {
+        ...state,
+        favorite_photos: [...state.favorite_photos, action.payload],
+      };
+    }
+    case GalleryActions.REMOVE_FAVORITES: {
+      return {
+        ...state,
+        favorite_photos: state.favorite_photos.filter(
+          item => item.id !== action.payload.id
+        ),
       };
     }
     default:
