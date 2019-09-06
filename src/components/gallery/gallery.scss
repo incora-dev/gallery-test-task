@@ -1,0 +1,15 @@
+.gallery {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  &__preview {
+    flex: 1;
+    padding: 10px;
+  }
+  &__list {
+    width: 100%;
+    padding: 10px;
+    min-height: 200px;
+  }
+}
